@@ -9,11 +9,16 @@ template <class T>
 void makeIteration(vector<T>& universe) {
 	random_device rd;
 	mt19937 gen(rd());
+
 	int combinationSum = 0;
 	int firstRandom = gen() % universe.size();
 	int secondRandom = gen() % universe.size();
-	while (firstRandom == secondRandom) secondRandom = gen() % universe.size();
+
+	while (firstRandom == secondRandom)
+		secondRandom = gen() % universe.size();
+
 	combinationSum += universe[firstRandom] + universe[secondRandom];
+
 	universe.push_back(combinationSum);
 }
 
@@ -43,8 +48,8 @@ void dataHandler(vector<T>& sumUniverse, vector<vector<int>>& data) {
 }
 
 int main() {
-	int n = 1000;
-	int depth = 2;
+	int n = 100;
+	int depth = 1;
 
 	vector<int> universe(4);
 	vector<int> defaultUniverse(4);
